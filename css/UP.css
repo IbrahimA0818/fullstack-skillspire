@@ -1,0 +1,18 @@
+*{
+    background-color: aqua;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blueviolet;
+    text-align: center;
+}
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+    text-align: center;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+    color: brown;
+    text-align: center;
+}
