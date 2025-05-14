@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box model</title>
+  </head>
+  <body>
+    <style>
+      #header {
+        background-color: red;
+        width: 53em;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 2em;
+        height: 2.5em;
+      }
+      #container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 2em auto;
+      }
+      #side {
+        font-size: 2em;
+        background-color: aqua;
+        text-align: center;
+        border-radius: 8px;
+        width: 10em;
+        height: 10em;
+      }
+      #body {
+        font-size: 2em;
+        background-color: black;
+        color: azure;
+        width: 45em;
+        height: 20em;
+        border-radius: 8px;
+        text-align: center;
+        margin-left: 100px;
+      }
+      #foot {
+        background-color: gray;
+        font-size: 2em;
+        width: 53em;
+        text-align: center;
+        border-radius: 8px;
+        height: 3.5em;
+      }
+    </style>
+
+    <div id="header"><p>Header</p></div>
+    <div id="container">
+      <div id="side"><p>Side-Nav</p></div>
+      <div id="body"><p>body</p></div>
+    </div>
+    <div id="foot"><p>footer</p></div>
+  </body>
+</html>
