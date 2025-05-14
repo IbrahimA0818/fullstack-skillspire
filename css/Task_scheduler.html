@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: aliceblue;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #title{
+            background-color: blue;
+            color: white;
+            width: 600px;
+            border-radius: 8px;
+        }
+        table{
+            border-collapse: collapse;
+            width: 180%;
+            margin-left: -200px;
+            font-size: 2.3em;
+        }
+        #done{
+            background-color: green;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+        }
+        th{
+            background-color: blue;
+            color: white;
+        }
+
+    </style>
+    <div id="title"><h1>Task Scheduler</h1></div>
+    <br><br>
+    <div>
+      <form id="form">
+        <input type="text" name="task" id="task" placeholder="Enter task.." />
+        <select name="priority" id="priority">
+          <option value="1">Top priority</option>
+          <option value="2">Mid priority</option>
+          <option value="3">Low priority</option></select
+        ><input type="date" name="date" id="day" /><input
+          type="submit"
+          name="add task"
+          id="add"
+        />
+      </form>
+    </div>
+    <br>
+    <div><table border="1px" id="table">
+        <tr>
+            <th>Task</th><th>Priority</th><th>Deadline</th>
+        </tr>
+        <tr>
+            <Td>DSA practice</Td> <td>Priority : Top</td> <td> Deadline : 08/18/25</td><td><button id="done">mark done</button></td>
+        </tr>
+        <tr>
+            <td>Js practice</td><td>priority : top</td><td>Deadline 05/20/25</td><td><button id="done">mark done</button></td>
+        </tr>
+        </tr>
+        <tr>
+            <td>Maths practice</td><td>Priority : top</td><td>Deadline : 09/2/25</td><td><button id="done">mark done</button></td>
+        </tr>
+        </tr>
+    </table></div>
+  </body>
+</html>
