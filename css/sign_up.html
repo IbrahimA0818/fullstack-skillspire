@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+
+        body{
+            margin-top: 100px;
+            background-color: purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #title{
+            color: purple;
+        }
+
+        .container{
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            border: 2px purple;
+            padding: 10px;
+            width: 400px;
+            height: 550px;
+            font-size: 1.4em;
+        }
+        label{
+            margin-left: -300px;
+        }
+        input{
+            width: 350px;
+            font-size: 1em;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 3px;
+            box-shadow: 3px 3px 3px;
+        }
+        button{
+            background-color: purple;
+            font-size: 1.1em;
+            border: 2px solid black;
+            border-radius: 20px;
+            width: 300px;
+            height: 50px;
+            box-shadow: 3px 3px 3px;
+        }
+        button:hover{
+            background-color: blueviolet;
+        }
+    </style>
+    <div class="container">
+    <h1 id="title">Sign up</h1>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" placeholder="Enter Your Full Name...">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="users-email" id="email" placeholder="Enter Your Email...">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="Users-password" id="password" placeholder="Enter your Password...">
+    <br>
+    <Button>Sign up!</Button>
+    <p>Have an account? <a href="https://youtu.be/fEHcsNmu6Yc?si=Phb_nknKuY16-Lsh">Click here.</a></p>
+</div>
+</body>
+</html>
