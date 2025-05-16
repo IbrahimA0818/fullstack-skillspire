@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      body{
+        background-color: #eeeeee;
+      }
+      h1 {
+        color: gray;
+        font-size: 2.5em;
+        margin-left: -200px;
+        text-align: center;
+      }
+      #title {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        padding: 10px;
+        border-radius: 8px; 
+        margin-left: -10px;
+        width: 1500px;
+      }
+
+      #title img {
+        left: 10px; 
+        top: 50%; 
+        width: 150px;
+        height: 100px;
+      }
+
+      #title h1 {
+        margin: 0; 
+        text-align: center; 
+        width: 190%; 
+        
+      }
+
+      #links {
+        display: flex;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        gap: 20px;
+        font-size: 1.2em;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 2em;
+      }
+      #not {
+        text-align: center;
+        margin: 20px auto; 
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 2em;
+        background: #2A7B9B;
+        background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(237, 237, 237, 1) 100%, rgba(237, 221, 83, 1) 100%);
+        width: 90%;
+        border: 1px solid black;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch; 
+        justify-content: space-evenly;
+        gap: 20px;
+      }
+
+      #News, #need, #words {
+        background-color: lightblue; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 8px;
+        width: 350px;
+        height: 450px; 
+        font-size: 1.5em;
+        border: 3px solid black;
+      }
+
+      #need {
+        background-color: lightpink;
+      }
+
+      #words {
+        background-color: lightgoldenrodyellow;
+      }
+
+      #need label {
+        margin-top: 10px; 
+      }
+
+      #need input {
+        margin-bottom: 10px; 
+      }
+      label{
+        margin-left: -190px;
+      }
+      #text{
+        box-shadow: 3px 3px 3px;
+        margin-left: -60px;
+        font-size: 0.6em;
+        width: 250px;
+        height: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="title">
+      <img src="Nothing_Logo.webp" alt="nothing" width="100px" height="80px" />
+      <h1>The nothing assosiation</h1>
+    </div>
+    <div id="links">
+      <a href="">Home</a>
+      <a href=>Adults</a>
+      <a href="">kids</a>
+      <a href="">News</a>
+      <a href="">FAQ</a>
+      <a href="">Glossary</a>
+    </div>
+    <div id="not">
+      <p>this webpage does absolutely nothing</p>
+    </div>
+    <div class="container">
+      <div id="News">
+        <h2>News & Events</h2>
+        <p>Click to find out more</p>
+        <ul>
+          <li>jumping kangaroos?</li>
+          <li>farting limbos</li>
+          <li>magik sword</li>
+          <li>speeding cheetah</li>
+        </ul>
+      </div>
+      <div id="need">
+        <h2>who do you need?</h2>
+        <br />
+        <label>Their name...</label>
+        <input type="text" name="" id="text" placeholder="person's name" />
+        <br />
+        <label>Their address...</label>
+        <input type="text" name="" id="text" placeholder="address" />
+        <br />
+        <label>Are they cool?</label>
+        <input type="radio" name="cool?" id="radio">Yes
+        <input type="radio" name="cool?" id="radio">No
+      </div>
+      <div id="words">
+        <h2>Italian words</h2>
+        <ul>
+          <li>Lorem ipsum</li>
+          <li>consectetur modi</li>
+          <li>praesentium dolores!</li>
+          <li>what</li>
+          <li>is</li>
+          <li>this</li>
+          <li>here</li>
+          <li>idk</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
