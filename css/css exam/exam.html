@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exam</title>
+  </head>
+  <body>
+    <style>
+      #toplinks {
+        background-color: black;
+        height: 80px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1em;
+      }
+      #bottomlinks {
+        background-color: black;
+        height: 70px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1em;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      .yellowbox {
+        background-color: yellow;
+        width: 250px;
+        height: 300px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      #yellowcontainer {
+        display: flex;
+        align-items: center;
+        width: 70%;
+        gap: 3px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      #sidecon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 2px solid blue;
+        flex-direction: column;
+        width: 20%;
+        height: 600px;
+        border-radius: 8px;
+      }
+      #bigcontainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 60px;
+        flex-direction: row-reverse;
+        padding: 10px;
+      }
+      .blueguys{
+        background-color: blue;
+        width: 600px;
+        height: 140px;
+        text-align: center;
+        color: white;
+      }
+      #bottomcontainer{
+        display: flex;
+        gap: 10px;
+        padding: 5px;
+      }
+    </style>
+    <div id="toplinks">
+      <a href="">one</a>
+      <a href="">two</a>
+      <a href="">three</a>
+      <a href="">four</a>
+      <a href="">five</a>
+      <a href="">six</a>
+      <a href="">seven</a>
+    </div>
+    <div id="bigcontainer">
+      <div id="yellowcontainer">
+        <div class="yellowbox"><h1>1</h1></div>
+        <div class="yellowbox"><h1>2</h1></div>
+        <div class="yellowbox"><h1>3</h1></div>
+        <div class="yellowbox"><h1>4</h1></div>
+        <br />
+        <div class="yellowbox"><h1>5</h1></div>
+        <div class="yellowbox"><h1>6</h1></div>
+        <div class="yellowbox"><h1>7</h1></div>
+        <div class="yellowbox"><h1>8</h1></div>
+      </div>
+      <div id="sidecon">
+        <h1>Side Nav</h1>
+        <ol>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+        </ol>
+      </div>
+    </div>
+    <div id="bottomcontainer">
+      <div class="blueguys"><h1>1</h1></div>
+      <div class="blueguys"><h1>2</h1></div>
+      <div class="blueguys"><h1>3</h1></div>
+    </div>
+    <div id="bottomlinks">
+      <a href="">one</a>
+      <a href="">two</a>
+      <a href="">three</a>
+      <a href="">four</a>
+      <a href="">five</a>
+      <a href="">six</a>
+      <a href="">seven</a>
+    </div>
+  </body>
+</html>
