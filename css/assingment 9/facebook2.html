@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook</title>
+    <link rel="icon" href="icons8-facebook-48.png" />
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: #e9ebee;
+      }
+      #container2 {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+      }
+      #container1 {
+        flex: 1;
+        max-width: 700px;
+      }
+      #side {
+        flex: 1;
+        max-width: 700px;
+      }
+      #Name-container {
+        display: flex;
+        gap: 5px;
+      }
+      #first,
+      #last {
+        display: block;
+        flex: 0.6;
+        padding: 5px;
+        font-size: 1em;
+      }
+      #title {
+        height: 100px;
+        margin-top: -20px;
+        width: 100%;
+        color: white;
+        background-color: rgb(50, 67, 199);
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      #Facebook {
+        font-size: 2.3em;
+        margin-right: 500px;
+        text-align: left;
+      }
+      .inp {
+        width: 693px;
+        height: 25px;
+        font-size: 1em;
+      }
+      .titleinp {
+        background-color: lemonchiffon;
+      }
+      #titlesub {
+        color: white;
+        background-color: rgb(64, 71, 203);
+      }
+      #gender {
+        margin-left: 190px;
+      }
+      #signup:hover {
+        background-color: greenyellow;
+      }
+      #signup {
+        margin-left: 300px;
+        background-color: green;
+        width: 200px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 1em;
+        color: white;
+      }
+      #form2{
+        margin-top: -20px;
+      }
+    </style>
+    <div id="title">
+      <h1 id="Facebook">Facebook</h1>
+      <form>
+        <label>Email or Phone</label><br />
+        <input type="text" name="Email or Phone number" class="titleinp" />
+        <br />
+        <input type="checkbox" name="checkbox" id="" />
+        <label for="checkbox">Keep me logged in</label>
+      </form>
+      <form id="form2">
+      <br>
+        <label for="password">Password</label><br />
+        <input type="password" name="password" class="titleinp" /><br>
+        forgot password?
+      </form>
+
+      <br />
+    </div>
+    <div id="container2">
+      <div id="container1">
+        <h1>Sign Up</h1>
+        <p>It's free and will always be</p>
+        <div id="Name-container">
+          <input type="text" name="first" id="first" placeholder="First name" />
+          <input type="text" name="last" id="last" placeholder="Last name" />
+        </div>
+        <br />
+        <input
+          type="text"
+          name=""
+          class="inp"
+          placeholder="Email or Phone number"
+        />
+        <br />
+        <br />
+        <input
+          type="text"
+          name=""
+          class="inp"
+          placeholder="Re-enter Email or Phone number"
+        />
+        <br /><br />
+        <input type="password" name="" class="inp" placeholder="New Password" />
+        <br />
+        <br />
+        <label>Birthday:</label>
+        <input type="date" name="birthday" id="" />
+        <a href="">Why do I need to provide my birthday?</a>
+        <br /><br />
+        <input type="radio" name="female" id="gender" />female
+        <input type="radio" name="male" id="gender" />male
+        <br />
+        <p>
+          By clicking Sign up, you agree with our terms and that <br />you have
+          read our data use policy, including our cookie use.
+        </p>
+        <br />
+        <input type="submit" name="Sign up" id="signup" value="Sign Up" />
+        <hr />
+        <p>
+          Create a page for a celebrity, band, or business or anything else you
+          want...
+        </p>
+      </div>
+      <div id="side">
+        <h1>Connect with friends and the world around you with Facebook.</h1>
+        <p>
+          <br />
+          <strong>See photos and updates</strong> from friends in the News Feed
+        </p>
+        <br />
+        <p><strong>Share whats new</strong> In your life on your timeline</p>
+        <p>
+          <br />
+          <strong>Find more</strong> of what You're looking for with graph
+          search
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
