@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fa3</title>
+</head>
+<body>
+    <h1>part 1: </h1>
+    <H1>first name: ibrahim</H1>
+    <h1>Lastname: ajebna</h1>
+    <h1>fav food: pizza</h1>
+    <h1>Places i want to go: japan</h1>
+
+    <h1>part 2</h1>
+
+    {% for i in range(1,11) %}
+        {% if i%2 == 0 %}
+            <h3>I: Even</h3>
+        {% else: %}
+            <h3>I: Odd</h3>
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
