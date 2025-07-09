@@ -14,7 +14,7 @@ def about():
 
   We aim to help you connect with purrfect furbaby for you! 
 
-  The animals you find at our website are rescue animals which have been       rehabilitated. 
+  The animals you find at our website are rescue animals which have been         rehabilitated. 
 
   Our mission is to promote the ideology of "Adopt, don't Shop"! </h2>"""
 
