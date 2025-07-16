@@ -1,1 +1,1 @@
-this is assignments for Skillspire bootcamp
+these are assignments for the Skillspire bootcamp.
