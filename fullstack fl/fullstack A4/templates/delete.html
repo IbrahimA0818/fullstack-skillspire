@@ -1,0 +1,18 @@
+<html>
+  <head> </head>
+
+  <body>
+    <h1>Are you sure that you want to delete the following user?</h1>
+
+    <h2>Name: {{user.name}}</h2>
+    <h2>Email: {{user.email}}</h2>
+
+    <a href="/">
+      <button>No</button>
+    </a>
+
+    <a href="/delete_user/{{user.id}}">
+      <button>Yes</button>
+    </a>
+  </body>
+</html>

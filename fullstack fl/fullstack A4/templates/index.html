@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      table,
+      th,
+      tr,
+      td {
+        border: solid black 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Add a new user:</h1>
+    <form action="/addusers" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" /><br />
+
+      <label>Email:</label>
+      <input type="text" name="email" /><br />
+
+      <input type="submit" value="Add" />
+    </form>
+
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date Created</th>
+        <th>Actions</th>
+      </thead>
+
+      {% for user in users %}
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.date_created}}</td>
+        <td>
+          <a href="/show_user/{{user.id}}">view</a>
+          <a href="/edit_user/{{user.id}}">edit</a>
+          <a href="/display_user/{{user.id}}">remove</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

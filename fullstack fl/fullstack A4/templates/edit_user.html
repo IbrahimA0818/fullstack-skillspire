@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>Edit User</h1>
+
+    <form action="/update_user/{{user.id}}" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" value="{{user.name}}" /><br />
+
+      <label>Email:</label>
+      <input type="text" name="email" value="{{user.email}}" /><br />
+
+      <input type="submit" value="Update" />
+    </form>
+
+    <a href="/">Cancel</a>
+  </body>
+</html>

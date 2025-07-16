@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            table,th,th,tr,td{
+                border:solid black 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Add a new course:</h1>
+        <form action="/addcourse" method="POST">
+            <label>Name:</label>
+            <input type="text" name="name"><br>
+
+            <label>Description:</label>
+            <input type="text" name="description"><br>
+
+            <input type="submit" value="Add">
+        </form>
+
+
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date Created</th>
+                <th>Actions</th>
+            </thead>
+
+        {% for course in courses %}
+            <tr>
+                <td>{{course.name}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.date_created}}</td>
+                <td><a href="/display_course/{{course.id}}">remove</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
