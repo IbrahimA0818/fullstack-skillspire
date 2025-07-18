@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Blog Posts</title>
+    <style>
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
+          sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .nav {
+        margin-bottom: 30px;
+      }
+      .nav a {
+        text-decoration: none;
+        color: blue;
+        margin-right: 20px;
+      }
+      .nav a:hover {
+        text-decoration: underline;
+      }
+      .post {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .post-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .post-meta {
+        color: #666;
+        margin-bottom: 10px;
+      }
+      .post-content {
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blog Posts</h1>
+
+    <div class="nav">
+      <a href="/">Home</a>
+      <a href="/create_post">Write New Post</a>
+    </div>
+
+    {% if posts %} {% for post in posts %}
+    <div class="post">
+      <div class="post-title">{{ post.title }}</div>
+      <div class="post-meta">
+        By {{ post.author }} on {{ post.date_created.strftime('%B %d, %Y') }}
+      </div>
+      <div class="post-content">{{ post.content }}</div>
+    </div>
+    {% endfor %} {% else %}
+    <p>No posts yet. <a href="/create_post">Write the first post!</a></p>
+    {% endif %}
+  </body>
+</html>
