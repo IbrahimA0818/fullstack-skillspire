@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Appointment</title>
+    <style>
+        input[type="text"] { width: 200px; padding: 5px; margin-bottom: 10px; }
+        input[type="submit"], .btn { padding: 8px 15px; margin: 5px; }
+        input[type="datetime-local"] { width: 200px; padding: 5px; margin-bottom: 10px; }
+    </style>
+</head>
+
+<body>
+    <h1>Add New Appointment</h1>
+    
+    <form action="/addappointments" method="POST">
+        <label>Patient's Name:</label><br>
+        <input type="text" name="name" required><br>
+        
+        <label>Complaint:</label><br>
+        <input type="text" name="issue" required><br>
+
+        <label>Appointment Date & Time:</label><br>
+        <input type="datetime-local" name="appointment_date" required><br>
+        
+        <input type="submit" value="Add Appointment">
+        <a href="/" class="btn">Cancel</a>
+    </form>
+</body>
+</html>
