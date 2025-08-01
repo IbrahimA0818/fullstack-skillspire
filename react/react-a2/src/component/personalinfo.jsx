@@ -1,19 +1,15 @@
 import React from "react";
 
-function PersonalInfo(){
-    <div>
-        <h1>
-            First Name: Ibrahim
-        </h1>
-        <h1>
-            Last Name: Ajebna
-        </h1>
-        <h1>
-            Fav food: Pizza
-        </h1>
-        <h1>
-            Fav vacation destination: Dubai
-        </h1>
-
-    </div>
+function PersonalInfo() {
+    return (
+        <div>
+            <h1>Personal Information</h1>
+            <p><strong>First Name:</strong> Ibrahim</p>
+            <p><strong>Last Name:</strong> Ajebna</p>
+            <p><strong>Favorite Food:</strong> Pizza</p>
+            <p><strong>Favorite Vacation Destination:</strong> Dubai</p>
+        </div>
+    );
 }
+
+export default PersonalInfo;
