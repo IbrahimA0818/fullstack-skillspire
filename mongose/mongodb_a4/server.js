@@ -8,7 +8,7 @@ app.use( bodyParser.json() )
 
 app.use('/', router)
 
-let connectionString = "mongodb+srv://ibrahima0818:Nimco6921@cluster0.w9bbjbw.mongodb.net/myplaylistsDB?retryWrites=true&w=majority&appName=Cluster0"
+let connectionString = "MONGO_URI=YOUR_MONGODB_URI_HERE"
 
 
 mongoose.connect(connectionString)

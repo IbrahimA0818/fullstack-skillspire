@@ -50,8 +50,8 @@ app.post("/todos", (request,response)=>{
         })
         .catch( (err) => console.log(err) )
 })
-
-let connectionString = "mongodb+srv://ibrahima0818:Nimco6921@cluster0.w9bbjbw.mongodb.net/mytodosDB?retryWrites=true&w=majority&appName=Cluster0"
+m
+let connectionString = "MONGO_URI=YOUR_MONGODB_URI_HERE"
 
 
 mongoose.connect(connectionString)
