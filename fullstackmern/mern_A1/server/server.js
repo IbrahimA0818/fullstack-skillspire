@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use("/", router);
 
 let connectionString =
-  "mongodb+srv://ibrahima0818:3D.sb9whme4gzDA@cluster0.w9bbjbw.mongodb.net/myBooksDB?retryWrites=true&w=majority&appName=Cluster0";
+  "add";
 
 mongoose
   .connect(connectionString)
