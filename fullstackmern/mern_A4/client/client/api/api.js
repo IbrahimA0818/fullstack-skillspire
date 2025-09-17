@@ -6,6 +6,6 @@ const api = axios.create({
 
 export const getAppointments = () => api.get('/appointments')
 
-export const addAppointments = (book) => api.post('/appointments', book)
+export const addAppointments = (appointment) => api.post('/appointments', appointment)
 
-export const deleteAppointments = (id) => api.delete(`/appintmentss/${id}`)
+export const deleteAppointments = (id) => api.delete(`/appointments/${id}`)
