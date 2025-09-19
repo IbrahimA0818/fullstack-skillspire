@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+// Use environment-based URL - works for both development and production
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: process.env.NODE_ENV === 'production' 
+    ? '/api'  // In production, use relative path since frontend and backend are served from same domain
+    : 'http://localhost:8080/api', // In development, use localhost with /api prefix
 });
 
 export const getAllDonations = () => api.get('/donations');

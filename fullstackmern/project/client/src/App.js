@@ -122,11 +122,12 @@ function App() {
             onChange={(e) => setForm({ ...form, address: e.target.value })}
             required
           />
-          <textarea
+          <input
+            type="text"
             placeholder="Description (optional)"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            rows="3"
+            required
           />
           <select
             value={form.foodType}
