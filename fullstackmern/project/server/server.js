@@ -2,22 +2,24 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
-const router = require("./routers/routes"); // Express Router
 const cors = require("cors");
 
 const app = express();
 
+// Import your routes
+const router = require("./routers/routes");
+
 app.use(cors());
 app.use(bodyParser.json());
 
-// API routes
+// API routes go first
 app.use("/api", router);
 
-// Serve React build
+// Serve React build folder
 const clientBuildPath = path.join(__dirname, "../client/build");
 app.use(express.static(clientBuildPath));
 
-// Catch-all route for React
+// Catch-all to serve React's index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(clientBuildPath, "index.html"));
 });
