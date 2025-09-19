@@ -1,32 +1,35 @@
-const path = require("path"); // <- add this
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require("path");
 const router = require("./routers/routes");
 const cors = require("cors");
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // API routes
-app.use("/api", router); // optional: prefix API routes with /api
+app.use("/api", router);
 
-// Serve React frontend
-app.use(express.static(path.join(__dirname, "../client/build")));
+// Serve React build
+const clientBuildPath = path.join(__dirname, "../client/build");
+app.use(express.static(clientBuildPath));
 
+// Catch-all route to serve React frontend
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(clientBuildPath, "index.html"));
 });
 
-// Connect to MongoDB
+// DB connection
 const connectionString = process.env.MONGODB_URI;
 
 mongoose
   .connect(connectionString)
   .then(() => {
-    const port = process.env.PORT || 8080; // Use Render's PORT environment variable
+    const port = process.env.PORT || 8080;
 
     console.log("✅ Connected to DB");
 
