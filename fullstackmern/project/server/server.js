@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 
 app.use("/", router);
 
-let connectionString =
-  "mongodb+srv://ibrahima0818:oNRQgpD8idtzQeCu@cluster0.w9bbjbw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const connectionString = process.env.MONGODB_URI;
 
 mongoose
   .connect(connectionString)
