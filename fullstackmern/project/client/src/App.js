@@ -1,12 +1,21 @@
-
 import { useState, useEffect } from "react";
 import "./App.css";
-import { getAllDonations, addDonation, deleteDonation, updateDonation } from "./api/api";
+import { 
+  getAllDonations, 
+  addDonation, 
+  deleteDonation, 
+  updateDonation,
+  getAvailableDonations,
+  claimDonation
+} from "./api/api";
 
 function App() {
   const [role, setRole] = useState(null);
   const [donations, setDonations] = useState([]);
   const [editingId, setEditingId] = useState(null);
+  const [recipientEmail, setRecipientEmail] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showOnlyAvailable, setShowOnlyAvailable] = useState(false);
   const [form, setForm] = useState({
     restaurantName: "",
     email: "",
@@ -20,11 +29,16 @@ function App() {
     if (role === "recipient" || role === "home") {
       fetchDonations();
     }
-  }, [role]);
+  }, [role, showOnlyAvailable]);
 
   const fetchDonations = async () => {
     try {
-      const res = await getAllDonations();
+      let res;
+      if (role === "recipient" && showOnlyAvailable) {
+        res = await getAvailableDonations();
+      } else {
+        res = await getAllDonations();
+      }
       setDonations(res.data);
     } catch (err) {
       console.error("Error fetching donations:", err);
@@ -49,7 +63,7 @@ function App() {
         foodType: "",
       });
       setRole("home");
-      fetchDonations(); // Refresh the donations after adding/updating
+      fetchDonations();
     } catch (err) {
       console.error("Error saving donation:", err);
     }
@@ -77,6 +91,32 @@ function App() {
     setRole("donor");
   };
 
+  const handleClaim = async (donationId) => {
+    try {
+      await claimDonation(donationId, recipientEmail);
+      fetchDonations();
+      alert("Donation claimed successfully!");
+    } catch (err) {
+      console.error("Error claiming donation:", err);
+      alert("Error claiming donation. Please try again.");
+    }
+  };
+
+  const handleRecipientLogin = (e) => {
+    e.preventDefault();
+    if (recipientEmail.trim()) {
+      setIsLoggedIn(true);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setRecipientEmail("");
+    setRole(null);
+    setShowOnlyAvailable(false);
+  };
+
+  // Main role selection screen
   if (!role) {
     return (
       <div className="App">
@@ -88,6 +128,7 @@ function App() {
     );
   }
 
+  // Donor form
   if (role === "donor") {
     return (
       <div className="App">
@@ -127,7 +168,6 @@ function App() {
             placeholder="Description (optional)"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            required
           />
           <select
             value={form.foodType}
@@ -150,20 +190,28 @@ function App() {
     );
   }
 
+  // Admin view (home)
   if (role === "home") {
     return (
       <div className="App">
-        <h1>All Donations</h1>
+        <h1>All Donations (Admin View)</h1>
         <button onClick={() => setRole(null)}>Back</button>
         <button onClick={fetchDonations}>Refresh</button>
         <ul>
           {donations.map((d) => (
-            <li key={d._id}>
+            <li key={d._id} className={d.isClaimed ? "claimed" : ""}>
               <strong>{d.restaurantName}</strong> ({d.foodType})
+              {d.isClaimed && <span className="claimed-badge">CLAIMED</span>}
               <br />
               {d.address} | {d.phone} | {d.email}
               <br />
               {d.description && <><strong>Description:</strong> {d.description}<br /></>}
+              {d.isClaimed && (
+                <>
+                  <strong>Claimed by:</strong> {d.claimedBy} on {new Date(d.claimedAt).toLocaleDateString()}
+                  <br />
+                </>
+              )}
               <button onClick={() => handleDelete(d._id)}>Delete</button>
               <button onClick={() => handleEdit(d)}>Edit</button>
             </li>
@@ -173,24 +221,79 @@ function App() {
     );
   }
 
-  return (
-    <div className="App">
-      <h1>Recipient Portal</h1>
-      <button onClick={() => setRole(null)}>Back</button>
-      <button onClick={fetchDonations}>Refresh</button>
-      <ul>
-        {donations.map((d) => (
-          <li key={d._id}>
-            <strong>{d.restaurantName}</strong> ({d.foodType})
-            <br />
-            {d.address} | {d.phone} | {d.email}
-            <br />
-            {d.description && <><strong>Description:</strong> {d.description}<br /></>}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  // Recipient portal
+  if (role === "recipient") {
+    // Login screen for recipients
+    if (!isLoggedIn) {
+      return (
+        <div className="App">
+          <h1>Recipient Login</h1>
+          <button onClick={() => setRole(null)}>Back</button>
+          <form onSubmit={handleRecipientLogin} className="login-form">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={recipientEmail}
+              onChange={(e) => setRecipientEmail(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      );
+    }
+
+    // Recipient dashboard
+    return (
+      <div className="App">
+        <h1>Recipient Portal</h1>
+        <div className="user-info">
+          <span>Logged in as: {recipientEmail}</span>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+        <button onClick={() => setRole(null)}>Back</button>
+        <button onClick={fetchDonations}>Refresh</button>
+        
+        <div className="filter-controls">
+          <label>
+            <input
+              type="checkbox"
+              checked={showOnlyAvailable}
+              onChange={(e) => setShowOnlyAvailable(e.target.checked)}
+            />
+            Show only available donations
+          </label>
+        </div>
+
+        <ul>
+          {donations.map((d) => (
+            <li key={d._id} className={d.isClaimed ? "claimed" : ""}>
+              <strong>{d.restaurantName}</strong> ({d.foodType})
+              {d.isClaimed && <span className="claimed-badge">CLAIMED</span>}
+              <br />
+              {d.address} | {d.phone} | {d.email}
+              <br />
+              {d.description && <><strong>Description:</strong> {d.description}<br /></>}
+              {d.isClaimed && d.claimedBy === recipientEmail && (
+                <div className="my-claim">You claimed this donation</div>
+              )}
+              {d.isClaimed && d.claimedBy !== recipientEmail && (
+                <div className="claimed-by-other">Claimed by another recipient</div>
+              )}
+              {!d.isClaimed && (
+                <button 
+                  onClick={() => handleClaim(d._id)}
+                  className="claim-btn"
+                >
+                  Claim This Donation
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default App;

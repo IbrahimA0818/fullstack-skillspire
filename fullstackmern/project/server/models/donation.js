@@ -50,6 +50,19 @@ const donationSchema = new mongoose.Schema({
     type: String,
     trim: true,
     maxlength: [500, 'Description cannot exceed 500 characters']
+  },
+  // New fields for claiming functionality
+  isClaimed: {
+    type: Boolean,
+    default: false
+  },
+  claimedBy: {
+    type: String,
+    default: null // Will store recipient's email/username
+  },
+  claimedAt: {
+    type: Date,
+    default: null
   }
 });
 
