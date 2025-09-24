@@ -190,7 +190,6 @@ function App() {
     );
   }
 
-  // Admin view (home)
   if (role === "home") {
     return (
       <div className="App">
@@ -243,7 +242,6 @@ function App() {
       );
     }
 
-    // Recipient dashboard
     return (
       <div className="App">
         <h1>Recipient Portal</h1>

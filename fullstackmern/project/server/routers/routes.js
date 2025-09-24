@@ -8,13 +8,12 @@ const {
     UpdateDonation,
     DeleteDonation,
     AddDonation,
+    GetAvailableDonations,
     ClaimDonation,
-    UnclaimDonation,
-    GetAvailableDonations
+    UnclaimDonation
 } = require("../controllers/controller")
 
-// IMPORTANT: Put specific routes BEFORE parameterized routes
-router.get('/donations/available', GetAvailableDonations); // Changed path
+router.get('/donations/available', GetAvailableDonations);
 router.get('/donations', GetAllDonations);
 router.get('/donations/:id', GetDonation);
 router.post('/donations', AddDonation);
